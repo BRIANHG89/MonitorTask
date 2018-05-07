@@ -139,8 +139,6 @@ class User_model extends CI_Model
         return TRUE;
     }
     
-    
-    
     /**
      * This function is used to delete the user information
      * @param number $userId : This is user id
