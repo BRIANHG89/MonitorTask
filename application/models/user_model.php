@@ -10,7 +10,6 @@ class User_model extends CI_Model
 
     function userListingCount($searchText = '')
     {
-         die();
 
         $this->db->select('BaseTbl.userId, BaseTbl.email, BaseTbl.name, BaseTbl.mobile, Role.role');
         $this->db->from('tbl_users as BaseTbl');
@@ -138,9 +137,6 @@ class User_model extends CI_Model
         
         return TRUE;
     }
-    
-    
-    
     /**
      * This function is used to delete the user information
      * @param number $userId : This is user id
@@ -153,8 +149,6 @@ class User_model extends CI_Model
         
         return $this->db->affected_rows();
     }
-
-
     /**
      * This function is used to match users password for change password
      * @param number $userId : This is user id

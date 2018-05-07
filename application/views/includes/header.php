@@ -42,7 +42,7 @@
         <!-- Logo -->
         <a href="<?php echo base_url(); ?>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>CI</b>AS</span>
+          <span class="logo-mini"><b>Control De tareas</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Task Admin</b>***</span>
         </a>
@@ -90,7 +90,8 @@
         <section class="sidebar">
           <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url();?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <!--<img src="<?php echo base_url();?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+            <b>//</b>
         </div>
         <div class="pull-left info">
           <p>Bryan Henrandez García</p>
@@ -151,7 +152,6 @@
             ?>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>userListing">
-                <!--<a href="<?php //echo base_url(userListing()); ?>-->
                 <i class="fa fa-users"></i>
                 <span>Users</span>
               </a>
