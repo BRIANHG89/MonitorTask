@@ -59,6 +59,8 @@ class User extends BaseController
             $this->global['pageTitle'] = 'CodeInsect : User Listing';
             
             $this->loadViews("users", $this->global, $data, NULL);
+
+             //var_dump($data['userRecords']);
         }
     }
 

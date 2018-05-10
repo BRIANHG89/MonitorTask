@@ -23,16 +23,35 @@ class Alumno extends BaseController
     }
     public function index()
     {
-        $this->global['pageTitle'] = 'AdminTask : Dashboard';
+        $this->global['pageTitle'] = 'CreateStudent : Dashboard';
 
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
 
+    //
+    public function CheckEmailExists()
+    {
+        $alumnoId = $this->input->post("alumnoId");
+        $email = $this->input->post("email");
+        //
+        if(empty($alumnoId)) {
+            $result = $this->alumno_model->checkEmailExists($email);
+        }else{
+            $result = $this->alumno_model->checkEmailExists($email, $alumnoId);
+        }
+        //
+        if (empty($result)){
+            echo ("true");
+        }else{
+            echo ("falso");
+        }
+    }
     public function addNewStudent()
     {
         $this->load->library('form_validation');
         //$this->load->model('alumno_model');
         //
+
         $this->form_validation->set_rules('nombre','Name', 'trim|required|max_length[128]|xss_clean');
         $this->form_validation->set_rules('apellido', 'LastName', 'trim|required|max_length[120]|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|matches[password]|max_length[50]');
@@ -71,5 +90,13 @@ class Alumno extends BaseController
         }
 
     }
+    public function registerStudent()
+    {
+         $alumno = new alumno_model();
+         $alumno->NewAlumno();
+         return $this->result();
+    }
+    //
+
 
 }

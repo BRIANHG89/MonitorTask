@@ -150,7 +150,6 @@ class User_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-
     /**
      * This function is used to match users password for change password
      * @param number $userId : This is user id
