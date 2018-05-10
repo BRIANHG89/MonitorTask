@@ -124,12 +124,11 @@ class User_model extends CI_Model
         
         return $query->result();
     }
-    
-    
     /**
      * This function is used to update the user information
      * @param array $userInfo : This is users updated information
      * @param number $userId : This is user id
+     * @return id : modefied
      */
     function editUser($userInfo, $userId)
     {

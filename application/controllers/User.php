@@ -81,7 +81,6 @@ class User extends BaseController
             $this->loadViews("addNew", $this->global, $data, NULL);
         }
     }
-
     /**
      * This function is used to check whether email already exist or not
      */
@@ -112,6 +111,7 @@ class User extends BaseController
         }
         else
         {
+            //encapsular las validaciones en una libreria
             $this->load->library('form_validation');
             
             $this->form_validation->set_rules('fname','Full Name','trim|required|max_length[128]|xss_clean');
@@ -216,7 +216,8 @@ class User extends BaseController
                 $mobile = $this->input->post('mobile');
                 
                 $userInfo = array();
-                
+                $userInfo = [];
+
                 if(empty($password))
                 {
                     $userInfo = array('email'=>$email, 'roleId'=>$roleId, 'name'=>$name,

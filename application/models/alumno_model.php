@@ -14,7 +14,7 @@ class alumno_model extends  CI_Model
     function NewAlumno($alumnoInfo)
     {
         $this->db->trans_start();
-        $this->db->insert('alumno', $alumnoInfo);
+        $this->db->insert('tbl_alumno', $alumnoInfo);
 
         $insert_id = $this->db->insert_id();
         $this->db->trans_complete();
@@ -24,6 +24,32 @@ class alumno_model extends  CI_Model
     public function getInfor()
     {
         //
+        /*
+        $this->db->select('userId', 'alumno_id', 'nombre');
+        $this->db->from('tbl_alumno');
+        */
     }
+    /**
+     * This function is used to update the user information
+     * @param array $userInfo : This is users updated information
+     * @param number $userId : This is user id
+     * @return id : modified
+     */
+    function editAlumno($alumnoInfo, $userId)
+    {
+        $this->db->where('userId', $userId);
+        $this->db->update('tbl_users', $alumnoInfo);
+
+        return TRUE;
+    }
+
+    function  deleteAlumno($alumnoid, $alumnoInfor)
+    {
+     $this->db->where('alumno_id', $alumnoid);
+     $this->db->update('tbl_alumno', $alumnoInfor);
+
+     return $this->db->affected_rows();
+    }
+
 
 }
