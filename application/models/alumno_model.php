@@ -28,12 +28,6 @@ class alumno_model extends  CI_Model
         return $query->result();
         //
     }
-<<<<<<< HEAD
-    public function updateAlumno()
-    {
-
-    }
-=======
     /**
      * This function is used to update the user information
      * @param array $userInfo : This is users updated information
@@ -44,7 +38,6 @@ class alumno_model extends  CI_Model
     {
         $this->db->where('alumno_id', $alumnoId);
         $this->db->update('tbl_alumno', $alumnoInfor);
->>>>>>> App-Models-Students
 
         return TRUE;
     }
