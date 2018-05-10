@@ -8,26 +8,25 @@
  */
 class alumno_model extends  CI_Model
 {
-    /*
-     * insertamos alumnos
-     */
-    function NewAlumno($alumnoInfo)
+
+    function NewAlumno($alumnoInfor)
     {
         $this->db->trans_start();
-        $this->db->insert('tbl_alumno', $alumnoInfo);
+        $this->db->insert('tbl_alumno', $alumnoInfor);
 
         $insert_id = $this->db->insert_id();
         $this->db->trans_complete();
         return $insert_id;
 
     }
-    public function getInfor()
+    public function getInfor($alumnoId)
     {
-        //
-        /*
-        $this->db->select('userId', 'alumno_id', 'nombre');
+        $this->db->select('alumno_id', 'nombre');
         $this->db->from('tbl_alumno');
-        */
+        $this->db->where('alumno_id', $alumnoId);
+        $query = $this->db->get();
+        return $query->result();
+        //
     }
     /**
      * This function is used to update the user information
@@ -35,10 +34,10 @@ class alumno_model extends  CI_Model
      * @param number $userId : This is user id
      * @return id : modified
      */
-    function editAlumno($alumnoInfo, $userId)
+    function editAlumno($alumnoId, $alumnoInfor)
     {
-        $this->db->where('userId', $userId);
-        $this->db->update('tbl_users', $alumnoInfo);
+        $this->db->where('alumno_id', $alumnoId);
+        $this->db->update('tbl_alumno', $alumnoInfor);
 
         return TRUE;
     }
@@ -51,5 +50,8 @@ class alumno_model extends  CI_Model
      return $this->db->affected_rows();
     }
 
+    function emailExist()
+    {
 
+    }
 }

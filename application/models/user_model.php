@@ -10,7 +10,6 @@ class User_model extends CI_Model
 
     function userListingCount($searchText = '')
     {
-         die();
 
         $this->db->select('BaseTbl.userId, BaseTbl.email, BaseTbl.name, BaseTbl.mobile, Role.role');
         $this->db->from('tbl_users as BaseTbl');
